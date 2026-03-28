@@ -1,6 +1,6 @@
-const { getAllLinks } = require("../lib/maintenance");
+import { getAllLinks } from "../lib/maintenance.mjs";
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   const links = await getAllLinks();
   const activeCount = links.filter((l) => l.status === "active").length;
 
@@ -70,7 +70,7 @@ module.exports = async function handler(req, res) {
                                           l.status === "active"
                                             ? '<span class="text-green-400 font-bold">✅ Active</span>'
                                             : l.status === "failed"
-                                              ? `<span class="text-red-400 font-bold" title="${l.error}">❌ Failed</span>`
+                                              ? '<span class="text-red-400 font-bold" title="' + (l.error || "") + '">❌ Failed</span>'
                                               : '<span class="text-yellow-500">⏳ Waiting</span>'
                                         }
                                     </td>
@@ -119,4 +119,4 @@ module.exports = async function handler(req, res) {
 
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.status(200).send(html);
-};
+}
