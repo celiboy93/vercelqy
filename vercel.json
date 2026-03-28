@@ -6,7 +6,7 @@
     { "source": "/api/trigger", "destination": "/api/trigger" }
   ],
   "functions": {
-    "api/trigger.js": {
+    "api/trigger.mjs": {
       "maxDuration": 300
     }
   }
