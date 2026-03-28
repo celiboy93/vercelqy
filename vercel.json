@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/api/index" },
+    { "source": "/api/add", "destination": "/api/add" },
+    { "source": "/api/delete", "destination": "/api/delete" },
+    { "source": "/api/trigger", "destination": "/api/trigger" }
+  ],
+  "functions": {
+    "api/trigger.js": {
+      "maxDuration": 300
+    }
+  }
+}
